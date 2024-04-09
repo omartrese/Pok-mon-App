@@ -1,5 +1,5 @@
 import './App.css'
-import Type from './components/Type'
+import TypeCard from './components/TypeCard'
 
 function App() {
   return (
@@ -9,16 +9,20 @@ function App() {
           <h1 className='text-center text-5xl m-5'>Pokémon App</h1>
         </header>
 
-        <article className='w-screen h-96 bg-white'>
-          
-          <input type="text" name="searchPokemon" placeholder='Search Pokémon'/>
+        <article className='w-screen h-48 bg-white'>
 
-          <Type type="Agua"/>
-          <Type type="Fuego"/>
-          <Type type="Planta"/>
-          <Type type="Veneno"/>
-          <Type type="Eléctrico"/>
-          
+          <div className='w-screen flex justify-center'>
+            <input type="text" name="searchPokemon" placeholder='Search Pokémon' className='bg-sky-400 rounded-md m-5 text-2xl text-start'/>
+          </div>
+
+          <div>
+            <TypeCard />
+            <TypeCard />
+            <TypeCard />
+            <TypeCard />
+            <TypeCard />
+            <TypeCard />
+          </div>
 
         </article>
       </div>
