@@ -1,5 +1,6 @@
 import './App.css'
-import TypeCard from './components/TypeCard'
+import PokeCard from './components/PokeCard';
+import TypeCard from './components/TypeButton'
 import { types } from './data/data'
 
 function App() {
@@ -24,6 +25,24 @@ function App() {
           </div>
 
         </article>
+
+        <section>
+          <div>
+            <h1 className='text-center m-3 text-3xl'>EXPLORE POKÉMON</h1>
+          </div>
+
+          <div className='h-auto grid grid-cols-2 justify-items-center'>
+            <PokeCard />
+            <PokeCard />
+            <PokeCard />
+            <PokeCard />
+            <PokeCard />
+            <PokeCard />
+            <PokeCard />
+            <PokeCard />
+          </div>
+        </section>
+
       </div>
     </>
   )
