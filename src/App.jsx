@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import './App.css'
+import { useState, useEffect } from 'react';
+import { types } from './data/data'
 import PokeCard from './components/PokeCard';
 import TypeCard from './components/TypeButton'
-import { types } from './data/data'
-import { useEffect } from 'react';
+import './App.css'
 
 function App() {
 
-  const cardTypes = types.map(type => <TypeCard Image={type.Type} key={type.Id} />);
+  const buttonTypes = types.map(type => <TypeCard Image={type.Type} key={type.Id} />);
 
   const [pokemon, setPokemon] = useState([]);
   const defaultPokemonURL = 'https://pokeapi.co/api/v2/pokemon/?limit=140';
@@ -54,7 +53,7 @@ function App() {
           </div>
 
           <div className='flex justify-center flex-wrap'>
-            {cardTypes}
+            {buttonTypes}
           </div>
 
         </article>
@@ -67,7 +66,7 @@ function App() {
           <div className='h-auto grid grid-cols-2 justify-items-center'>
 
             {
-              pokemon.map(pokemon => <PokeCard name={pokemon.Name} img={pokemon.Img} key={pokemon.Id} />)
+              pokemon.map(pokemon => <PokeCard Name={pokemon.Name} Image={pokemon.Img} key={pokemon.Id} />)
             }
 
             {/* <PokeCard />
