@@ -28,7 +28,7 @@ function Explorer({ allPokemonURL, setPokemon, search, setSearch }) {
             }
         })
     
-        setPokemon((await Promise.all(pokemons)).filter(pokemon => pokemon.Name.startsWith(search.toLowerCase())));
+        setPokemon((await Promise.all(pokemons)).filter(pokemon => pokemon.Name.includes(search.toLowerCase())));
     }
     
     useEffect(() => {

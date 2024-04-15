@@ -11,4 +11,5 @@ Majority Tailwind Styles
 body
 {
   background-color: #38bdf8;
+  overflow-x: hidden;
 }
