@@ -8,8 +8,8 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [search, setSearch] = useState("");
 
-  const DEFAULT_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=40';
-  const ALL_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=140';
+  const DEFAULT_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
+  const ALL_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -44,7 +44,7 @@ function App() {
 
         <Explorer allPokemonURL={ALL_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
 
-        <PokeSection pokemons={pokemon} />
+        <PokeSection pokemon={pokemon} />
 
       </div>
     </>

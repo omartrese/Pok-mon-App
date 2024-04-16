@@ -3,9 +3,22 @@ import { useEffect, useCallback } from 'react';
 import { types } from '../data/data'
 import TypeButton from './TypeButton';
 
-function Explorer({ allPokemonURL, setPokemon, search, setSearch }) {
+function Explorer({
+    allPokemonURL, 
+    setPokemon, 
+    search, 
+    setSearch,  }) {
+        
 
-    const buttonTypes = types.map(type => <TypeButton Image={type.Type} key={type.Id} />);
+    // const [type, setType] = useState("none");
+    const buttonTypes = types.map(type => <TypeButton 
+        Image={type.Image} 
+        Type={type.Type}
+        Url={allPokemonURL}
+        setPokemon={setPokemon}
+        // setType={setType}
+        key={type.Id} />);
+    
 
     const handleChange = useCallback((e) => {
         const value = e.target.value;
@@ -15,22 +28,23 @@ function Explorer({ allPokemonURL, setPokemon, search, setSearch }) {
     const getPokemon = async (url, setPokemon, search) => {
         const response = await fetch(url);
         const data = await response.json();
-    
+
         const { results } = data;
         const pokemons = results.map(async pokemon => {
             const pokemonResponse = await fetch(pokemon.url);
             const pokemonData = await pokemonResponse.json();
-    
+
             return {
                 Id: pokemonData.id,
                 Name: pokemonData.name,
+                Type: pokemonData.types,
                 Img: pokemonData.sprites.other.dream_world.front_default
             }
         })
-    
+
         setPokemon((await Promise.all(pokemons)).filter(pokemon => pokemon.Name.includes(search.toLowerCase())));
     }
-    
+
     useEffect(() => {
         getPokemon(allPokemonURL, setPokemon, search);
     }, [allPokemonURL, search, setPokemon])

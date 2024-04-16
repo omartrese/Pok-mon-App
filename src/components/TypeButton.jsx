@@ -1,13 +1,40 @@
+
 /* eslint-disable react/prop-types */
-function TypeCard({Image, key}) {
-    console.log(key);
+function TypeButton({ Image, Type, Url, setPokemon }) {
+
+    const filterPokemon = async (url) => {
+        console.log(Type);
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const { results } = data;
+        const pokemons = results.map(async pokemon => {
+            const pokemonResponse = await fetch(pokemon.url);
+            const pokemonData = await pokemonResponse.json();
+
+            return {
+                Id: pokemonData.id,
+                Name: pokemonData.name,
+                Types: pokemonData.types,
+                Img: pokemonData.sprites.other.dream_world.front_default
+            }
+        })
+
+        setPokemon((await Promise.all(pokemons)).filter(pokemon => {
+            const pokemonTypes = pokemon.Types;
+            return pokemonTypes.some(pokemonType => pokemonType.type.name === Type);
+        }));
+    }
+
+
+
     return (
         <div className=" flex size-12 justify-center items-center m-2 duration-150 hover:scale-110 active:scale-90">
-            <button type="button" className="size-12">
-                <img src={Image}/>
+            <button type="button" className="size-12" onClick={() => filterPokemon(Url)}>
+                <img src={Image} />
             </button>
         </div>
     )
 }
 
-export default TypeCard
+export default TypeButton
