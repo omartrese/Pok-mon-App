@@ -47,7 +47,7 @@ export const types = [
     },
     {
         "Name": "Fighting",
-        "Type": "fight",
+        "Type": "fighting",
         "Image": fight,
         "Id": 6
     },

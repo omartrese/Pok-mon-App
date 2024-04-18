@@ -9,7 +9,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   const DEFAULT_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
-  const ALL_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
+  const ALL_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=300';
 
   useEffect(() => {
     const getPokemon = async () => {

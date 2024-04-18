@@ -53,7 +53,7 @@ function Explorer({
         <article className='w-screen h-72 bg-white'>
 
             <div className='w-screen flex justify-center'>
-                <input type="text" name="searchPokemon" placeholder='Search Pokémon' className='bg-sky-400 rounded-md m-5 text-2xl text-start placeholder-gray-600' onChange={(e) => handleChange(e)} />
+                <input type="text" name="searchPokemon" placeholder='Search Pokémon' className='bg-sky-400 rounded-md m-5 text-2xl sm:text-4xl max-[290px]:text-xl text-start placeholder-gray-600' onChange={(e) => handleChange(e)} />
             </div>
 
             <div className='flex justify-center flex-wrap'>
