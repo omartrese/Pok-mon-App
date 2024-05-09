@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import './App.css'
 import Explorer from './components/Explorer';
@@ -5,11 +6,11 @@ import PokeSection from './components/PokeSection';
 
 function App() {
 
-  const [pokemon, setPokemon] = useState([]);
-  const [search, setSearch] = useState("");
-
   const DEFAULT_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
   const ALL_POKEMON_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=300';
+
+  const [pokemon, setPokemon] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -28,7 +29,9 @@ function App() {
         }
       })
 
-      setPokemon(await Promise.all(pokemons));
+      let finalPokemon = await Promise.all(pokemons);
+      setPokemon(finalPokemon);
+  
     }
 
     getPokemon();
@@ -42,7 +45,7 @@ function App() {
           <h1 className='text-center text-5xl m-5'>Pokémon App</h1>
         </header>
 
-        <Explorer allPokemonURL={ALL_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
+        <Explorer  allPokemonURL={ALL_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
 
         <PokeSection pokemon={pokemon} />
 

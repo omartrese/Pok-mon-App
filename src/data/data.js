@@ -13,6 +13,7 @@ import poison from "../assets/PoisonType.svg";
 import rock from "../assets/RockType.svg";
 import steel from "../assets/SteelType.svg";
 import water from "../assets/WaterType.svg";
+import none from "../assets/pokeball.svg";
 
 export const types = [
     {
@@ -104,5 +105,11 @@ export const types = [
         "Type": "water",
         "Image": water,
         "Id": 15
+    },
+    {
+        "Name": "None",
+        "Type": "none",
+        "Image": none,
+        "Id": 16
     }
 ]

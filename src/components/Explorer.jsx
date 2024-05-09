@@ -4,7 +4,7 @@ import { types } from '../data/data'
 import TypeButton from './TypeButton';
 
 function Explorer({
-    allPokemonURL, 
+    allPokemonURL,
     setPokemon, 
     search, 
     setSearch,  }) {
@@ -16,7 +16,6 @@ function Explorer({
         Type={type.Type}
         Url={allPokemonURL}
         setPokemon={setPokemon}
-        // setType={setType}
         key={type.Id} />);
     
 

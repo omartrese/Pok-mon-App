@@ -20,17 +20,21 @@ function TypeButton({ Image, Type, Url, setPokemon }) {
             }
         })
 
-        setPokemon((await Promise.all(pokemons)).filter(pokemon => {
-            const pokemonTypes = pokemon.Types;
-            return pokemonTypes.some(pokemonType => pokemonType.type.name === Type);
-        }));
+        if (Type != "none")
+            setPokemon((await Promise.all(pokemons)).filter(pokemon => {
+                const pokemonTypes = pokemon.Types;
+                return pokemonTypes.some(pokemonType => pokemonType.type.name === Type);
+            }));
+        else {
+            setPokemon((await Promise.all(pokemons)).splice(0, 100));
+        }
     }
 
 
 
     return (
-        <div className=" flex size-12 sm:size-16 min-[820px]:size-20  max-[290px]:size-10 justify-center items-center m-2 duration-150 hover:scale-110 active:scale-90">
-            <button type="button" className="size-12 sm:size-16 min-[800px]:size-20 max-[290px]:size-10" onClick={() => filterPokemon(Url)}>
+        <div className=" flex size-10 sm:size-16 min-[820px]:size-20  max-[290px]:size-10 justify-center items-center m-2 duration-150 hover:scale-110 active:scale-90">
+            <button type="button" className="size-10 sm:size-16 min-[800px]:size-20 max-[290px]:size-10" onClick={() => filterPokemon(Url)}>
                 <img src={Image} />
             </button>
         </div>
