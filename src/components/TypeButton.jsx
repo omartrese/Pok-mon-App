@@ -1,9 +1,13 @@
-
 /* eslint-disable react/prop-types */
-function TypeButton({ Image, Type, Url, setPokemon }) {
-
+function TypeButton({ Image, Type, setType, currentType, Url, setPokemon }) {
     const filterPokemon = async (url) => {
-        console.log(Type);
+        
+        if(currentType === Type) return; //avoid making infinite requests by clicking the same type
+        setType(Type);
+        // console.log(Type);
+        // console.log(currentType.Type);
+        // console.log(Type === currentType);
+
         const response = await fetch(url);
         const data = await response.json();
 

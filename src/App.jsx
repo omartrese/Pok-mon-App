@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import Explorer from './components/Explorer';
 import PokeSection from './components/PokeSection';
+import Stats from './components/Stats';
+import pokemonAppLogo from './assets/pokemonApp.svg';
 
 function App() {
 
@@ -26,12 +28,12 @@ function App() {
           Id: pokemonData.id,
           Name: pokemonData.name,
           Img: pokemonData.sprites.other.dream_world.front_default
-        }
+        };
       })
 
       let finalPokemon = await Promise.all(pokemons);
       setPokemon(finalPokemon);
-  
+
     }
 
     getPokemon();
@@ -41,13 +43,16 @@ function App() {
   return (
     <>
       <div className='w-screen h-screen'>
-        <header>
-          <h1 className='text-center text-5xl m-5'>Pokémon App</h1>
+        <header className='flex justify-center'>
+          {/* <h1 className='text-center text-5xl m-5'>Pokémon App</h1> */}
+          <img src={pokemonAppLogo} alt="pokemonApp Logo" style={{ width: 'auto', height: 'auto', margin: '1em' }} />
         </header>
 
-        <Explorer  allPokemonURL={ALL_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
+        <Explorer allPokemonURL={ALL_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
 
         <PokeSection pokemon={pokemon} />
+
+        <Stats />
 
       </div>
     </>

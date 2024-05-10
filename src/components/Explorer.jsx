@@ -1,23 +1,24 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { types } from '../data/data'
 import TypeButton from './TypeButton';
 
 function Explorer({
     allPokemonURL,
-    setPokemon, 
-    search, 
-    setSearch,  }) {
-        
+    setPokemon,
+    search,
+    setSearch, }) {
 
-    // const [type, setType] = useState("none");
-    const buttonTypes = types.map(type => <TypeButton 
-        Image={type.Image} 
-        Type={type.Type}
-        Url={allPokemonURL}
-        setPokemon={setPokemon}
+    const [currentType, setType] = useState("none");
+    const buttonTypes = types.map(type => <TypeButton
+        Image={type.Image} //each type icon
+        Type={type.Type} //each type identifier
+        currentType={currentType} //useState functions to save current Type used
+        setType={setType}
+        Url={allPokemonURL} //URL For making request to filter results
+        setPokemon={setPokemon} //useState to save results into var for render all pokemon
         key={type.Id} />);
-    
+
 
     const handleChange = useCallback((e) => {
         const value = e.target.value;
