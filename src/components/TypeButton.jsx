@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function TypeButton({ Image, Type, setType, currentType, Url, setPokemon }) {
+function TypeButton({ Image, Type, setType, currentType, allURL, setPokemon }) {
     const filterPokemon = async (url) => {
         
         if(currentType === Type) return; //avoid making infinite requests by clicking the same type
@@ -37,8 +37,8 @@ function TypeButton({ Image, Type, setType, currentType, Url, setPokemon }) {
 
 
     return (
-        <div className=" flex size-10 sm:size-16 min-[820px]:size-20  max-[290px]:size-10 justify-center items-center m-2 duration-150 hover:scale-110 active:scale-90">
-            <button type="button" className="size-10 sm:size-16 min-[800px]:size-20 max-[290px]:size-10" onClick={() => filterPokemon(Url)}>
+        <div className=" flex size-11 sm:size-16 min-[820px]:size-20  max-[290px]:size-10 justify-center items-center m-2 duration-150 hover:scale-110 active:scale-90">
+            <button type="button" className="size-11 sm:size-16 min-[800px]:size-20 max-[290px]:size-10" onClick={() => filterPokemon(allURL)}>
                 <img src={Image} />
             </button>
         </div>

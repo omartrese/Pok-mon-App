@@ -15,7 +15,7 @@ function Explorer({
         Type={type.Type} //each type identifier
         currentType={currentType} //useState functions to save current Type used
         setType={setType}
-        Url={allPokemonURL} //URL For making request to filter results
+        allURL={allPokemonURL} //URL For making request to filter results
         setPokemon={setPokemon} //useState to save results into var for render all pokemon
         key={type.Id} />);
 
