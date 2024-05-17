@@ -5,11 +5,13 @@ import TypeButton from './TypeButton';
 
 function Explorer({
     allPokemonURL,
+    defaultPokemonURL,
     setPokemon,
     search,
     setSearch, }) {
 
     const [currentType, setType] = useState("none");
+    
     const buttonTypes = types.map(type => <TypeButton
         Image={type.Image} //each type icon
         Type={type.Type} //each type identifier
@@ -46,8 +48,12 @@ function Explorer({
     }
 
     useEffect(() => {
+
+        if(!search || !search.trim() || search.length < 1) getPokemon(defaultPokemonURL, setPokemon, search);
+            else{
         getPokemon(allPokemonURL, setPokemon, search);
-    }, [allPokemonURL, search, setPokemon])
+        }
+    }, [allPokemonURL, defaultPokemonURL, search, setPokemon])
 
     return (
         <article className='w-screen h-72 bg-white'>

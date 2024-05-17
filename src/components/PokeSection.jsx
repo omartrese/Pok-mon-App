@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import PokeCard from "./PokeCard"
+import Stats from "./Stats";
 
 function PokeSection(props) {
     return (
@@ -25,6 +26,8 @@ function PokeSection(props) {
                         </h2>
                     </div>
             }
+
+            <Stats />
 
         </section>
     )

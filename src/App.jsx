@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import Explorer from './components/Explorer';
 import PokeSection from './components/PokeSection';
-import Stats from './components/Stats';
 import pokemonAppLogo from './assets/pokemonApp.svg';
 
 function App() {
@@ -48,11 +47,9 @@ function App() {
           <img src={pokemonAppLogo} alt="pokemonApp Logo" style={{ width: 'auto', height: 'auto', margin: '1em' }} />
         </header>
 
-        <Explorer allPokemonURL={ALL_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
+        <Explorer allPokemonURL={ALL_POKEMON_URL} defaultPokemonURL={DEFAULT_POKEMON_URL} setPokemon={setPokemon} setSearch={setSearch} search={search} />
 
         <PokeSection pokemon={pokemon} />
-
-        <Stats />
 
       </div>
     </>
