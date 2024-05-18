@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import pikachu from '../assets/pikachuplaceholder.png'
+import Stats from './Stats';
 
-function PokeCard({ Name = "Untitled", Image = pikachu, showStats = false, clickable = true}) {
+function PokeCard({ Name = "Untitled", Image = pikachu, setStatsDisplay, statsDisplay, clickable = true, setPokemonStats }) {
 
   const card =
     <div className="size-36 min-[820px]:size-64 lg:size-80 sm:size-56 max-[290px]:size-28 bg-white my-2 mx-16 rounded-xl">
@@ -14,15 +15,13 @@ function PokeCard({ Name = "Untitled", Image = pikachu, showStats = false, click
       </span>
     </div>
 
-  return clickable ? (
-
-    <button onClick={showStats = !showStats}>
-    {card}
-    </button>
-
-  ) 
-  : {card} //avoid that user can click another pokemon card when stats card is active
-
+  return (
+    <>
+      <button onClick={() => { if (clickable){ setStatsDisplay(true); } }}>
+        {card}
+      </button>
+    </>
+  )
 }
 
 export default PokeCard
