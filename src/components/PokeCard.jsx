@@ -1,8 +1,19 @@
 /* eslint-disable react/prop-types */
 import pikachu from '../assets/pikachuplaceholder.png'
-import Stats from './Stats';
 
-function PokeCard({ Name = "Untitled", Image = pikachu, setStatsDisplay, statsDisplay, clickable = true, setPokemonStats }) {
+function PokeCard({
+  Name = "Untitled",
+  Image = pikachu,
+  Weight,
+  Height,
+  Types,
+  HP,
+  Attack,
+  Defense,
+  SpecialAttack,
+  SpecialDefense,
+  Speed, 
+  setStatsDisplay, clickable = true, setPokemonStats }) {
 
   const card =
     <div className="size-36 min-[820px]:size-64 lg:size-80 sm:size-56 max-[290px]:size-28 bg-white my-2 mx-16 rounded-xl">
@@ -17,7 +28,12 @@ function PokeCard({ Name = "Untitled", Image = pikachu, setStatsDisplay, statsDi
 
   return (
     <>
-      <button onClick={() => { if (clickable){ setStatsDisplay(true); } }}>
+      <button onClick={() => {
+        if (clickable) {
+          setPokemonStats({ Name, Image, Weight, Height, Types, HP, Attack, Defense, SpecialAttack, SpecialDefense, Speed});
+          setStatsDisplay(true);
+        }
+      }}>
         {card}
       </button>
     </>

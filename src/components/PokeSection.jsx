@@ -30,7 +30,22 @@ function PokeSection(props) {
                         <div className='h-auto grid grid-cols-2 justify-items-center max-w-screen-xl'>
 
                             {
-                                props.pokemon.map(pokemon => <PokeCard Name={pokemon.Name} Image={pokemon.Img} setStatsDisplay={setStatsDisplay} statsDisplay={statsDisplay} clickable={clickable} pokemonStats key={pokemon.Id} />)
+                                props.pokemon.map(pokemon => <PokeCard
+                                    Name={pokemon.Name}
+                                    Image={pokemon.Img}
+                                    Weight={pokemon.Weight}
+                                    Height={pokemon.Height}
+                                    Types={pokemon.Types}
+                                    HP={pokemon.HP}
+                                    Attack={pokemon.Attack}
+                                    Defense={pokemon.Defense}
+                                    SpecialAttack={pokemon.SpecialAttack}
+                                    SpecialDefense={pokemon.SpecialDefense}
+                                    Speed={pokemon.Speed}
+                                    setStatsDisplay={setStatsDisplay}
+                                    clickable={clickable}
+                                    setPokemonStats={setPokemonStats}
+                                    key={pokemon.Id} />)
                             }
 
                         </div>
@@ -42,7 +57,7 @@ function PokeSection(props) {
                     </div>
             }
 
-            <Stats statsDisplay={statsDisplay} />
+            <Stats statsDisplayed={statsDisplay} pokemonStats={pokemonStats}/>
         </section>
 
     )

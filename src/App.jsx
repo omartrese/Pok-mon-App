@@ -26,7 +26,16 @@ function App() {
         return {
           Id: pokemonData.id,
           Name: pokemonData.name,
-          Img: pokemonData.sprites.other.dream_world.front_default
+          Img: pokemonData.sprites.other.dream_world.front_default,
+          Weight: pokemonData.weight,
+          Height: pokemonData.height,
+          Types: pokemonData.types,
+          HP: pokemonData.stats[0].base_stat,
+          Attack: pokemonData.stats[1].base_stat,
+          Defense: pokemonData.stats[2].base_stat,
+          SpecialAttack: pokemonData.stats[3].base_stat,
+          SpecialDefense: pokemonData.stats[4].base_stat,
+          Speed: pokemonData.stats[5].base_stat,
         };
       })
 
