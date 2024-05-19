@@ -19,7 +19,7 @@ function PokeSection(props) {
     useEffect(() => console.log("botones de pokemon CLICABLES: ", clickable), [clickable])
 
     return (
-        <section>
+        <section className="flex flex-col items-center justify-center">
             <div>
                 <h1 className='text-center m-3 text-3xl font-bold'>EXPLORE POKÉMON</h1>
             </div>
@@ -56,8 +56,9 @@ function PokeSection(props) {
                         </h2>
                     </div>
             }
-
-            <Stats statsDisplayed={statsDisplay} pokemonStats={pokemonStats}/>
+            <div >
+                <Stats statsDisplayed={statsDisplay} setStatsDisplay={setStatsDisplay} pokemonStats={pokemonStats}/>
+            </div>
         </section>
 
     )
