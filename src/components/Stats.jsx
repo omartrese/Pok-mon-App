@@ -10,7 +10,7 @@ function Stats({ statsDisplayed, setStatsDisplay, pokemonStats }) {
   }
 
   return (
-    <article className="bg-white fixed top-0 bottom-0 right-0 left-0 max-w-[800px] text-3xl sm:text-4xl mx-auto p-4 overflow-hidden flex flex-col items-center">
+    <article className="bg-white fixed top-0 bottom-0 right-0 left-0 w-screen text-3xl sm:text-4xl mx-auto p-4 overflow-hidden flex flex-col items-center">
 
       <h1 className="self-center text-3xl sm:text-5xl font-bold">{pokemonStats.Name.toUpperCase()}</h1>
 

@@ -27,7 +27,7 @@ function PokeSection(props) {
             {
                 props.pokemon.length > 0 ?
                     <div className="flex justify-around">
-                        <div className='h-auto grid grid-cols-2 justify-items-center max-w-screen-xl'>
+                        <div className='h-auto grid grid-cols-2 md:grid-cols-3 justify-items-center max-w-screen-xl'>
 
                             {
                                 props.pokemon.map(pokemon => <PokeCard
